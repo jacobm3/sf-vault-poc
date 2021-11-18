@@ -29,5 +29,20 @@ override.tf.json
 # example: *tfplan*
 *.out
 *.debug
+*.log
+*.log.*
 
 .terraform.lock.hcl
+
+*pass
+*passwd
+*password
+
+*.pem
+*.key
+*.crt
+
+*tmp*
+
+*.bak*
+
