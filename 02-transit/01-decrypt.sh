@@ -1,2 +1,13 @@
+#!/bin/bash
+
 vault write transit/decrypt/orders \
-    ciphertext="vault:v1:ZNhDWNXfRlWOBagk0jYkeF9n1Z0lTqTXWylctnVAo0DCFrp3BO2GwGeEPzyuSSM3"
+    ciphertext="$(cat ciphertext)"
+
+cleartext=$( vault write -format=json transit/decrypt/orders \
+    ciphertext="$(cat ciphertext)" \
+    | jq -r .data.plaintext | base64 -d )
+
+echo 
+echo "Cleartext: $cleartext"
+echo 
+
