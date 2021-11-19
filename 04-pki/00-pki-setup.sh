@@ -11,7 +11,7 @@ vault write pki/config/urls \
 vault write pki/roles/db1.theneutral.zone \
     allowed_domains=db1.theneutral.zone \
     allow_bare_domains=true \
-    allow_subdomains=true max_ttl=72h \
+    allow_subdomains=true max_ttl=10m \
     key_bits=4096
 
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-vault write transit/decrypt/orders \
-    ciphertext="$(cat ciphertext)"
+vault write transit/decrypt/orders ciphertext="$(cat ciphertext)"
 
 cleartext=$( vault write -format=json transit/decrypt/orders \
     ciphertext="$(cat ciphertext)" \
