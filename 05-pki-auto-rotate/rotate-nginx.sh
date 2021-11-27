@@ -2,14 +2,15 @@
 
 set -e
 
+# Web server config
 CERT_FILE=/etc/ssl/private/db1.theneutral.zone.crt
 KEY_FILE=/etc/ssl/private/db1.theneutral.zone.key
+WEB_CN=db1.theneutral.zone
 
-export WEB_CN=db1.theneutral.zone
 
+# Vault Connectivity
 export VAULT_ADDR=https://demo-hcp-vault-cluster.private.vault.41dc07e4-601f-4ec5-bc56-6f2215c34bea.aws.hashicorp.cloud:8200
 export VAULT_NAMESPACE=admin
-
 export VAULT_TOKEN=$(cat ~/.vault-token)
 
 echo
