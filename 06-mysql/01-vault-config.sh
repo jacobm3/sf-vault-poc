@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 echo "Enabling database secrets engine"
 vault secrets disable database
@@ -7,7 +7,7 @@ vault secrets enable database
 echo "Writing db1 DB secrets engine config"
 vault write database/config/db1 \
     plugin_name=mysql-database-plugin \
-    connection_url="{{username}}:{{password}}@tcp(10.0.139.37:3306)/" \
+    connection_url="{{username}}:{{password}}@tcp(10.0.143.159:3306)/" \
     allowed_roles="db1-5s,db1-30s" \
     username="vaultroot" \
     password="FP4X0JUU8OU2GdOJhySC"
