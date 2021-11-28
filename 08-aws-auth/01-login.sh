@@ -8,5 +8,8 @@ vault_login=$( vault write -format=json auth/aws/login role=dev-role \
   pkcs7=$pkcs7 \
   nonce=$nonce )
 
-echo $vault_login
-#token=$(echo $vault_login | jq -r 
+#echo $vault_login | jq
+
+export VAULT_TOKEN=$(echo $vault_login | jq -r .auth.client_token)
+
+echo $VAULT_TOKEN > ~/.vault-token
